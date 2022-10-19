@@ -1,0 +1,91 @@
+@prefix base: <http://www.RDorg.it/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+base:Biological_data_interpretation a prov:Activity ;
+    prov:used base:Biological_data ;
+    prov:wasAssociatedWith base:Cardiac_surgery_and_engineering_group .
+
+base:3D_construct a prov:Entity ;
+    prov:wasAttributedTo base:Cardiac_surgery_and_engineering_group ;
+    prov:wasGeneratedBy base:Scaffold_seeding .
+
+base:Biological_data a prov:Entity ;
+    prov:wasAttributedTo base:Cardiac_surgery_and_engineering_group ;
+    prov:wasGeneratedBy base:Biological_studies,
+        <http://www.RDorg.it/Read_out/Characterization> .
+
+base:Biological_studies a prov:Activity ;
+    prov:used base:Mature_tissue ;
+    prov:wasAssociatedWith base:Cardiac_surgery_and_engineering_group .
+
+base:Bioreactor_manipulation_and_tissue_culture a prov:Activity ;
+    prov:used base:3D_construct,
+        base:Bioreactor_preaparation_protocol,
+        base:Growth_factors_and_other_regulatory_molecules,
+        <http://www.RDorg.it/Stimulation/manipulation_protocol> ;
+    prov:wasAssociatedWith base:Cardiac_surgery_and_engineering_group .
+
+base:Bioreactor_preaparation_protocol a prov:Entity,
+        "Plan"^^xsd:string .
+
+base:Cell_expansion a prov:Activity ;
+    prov:used base:Isolated_cells,
+        base:Isolation_and_expansion_protocol ;
+    prov:wasAssociatedWith base:Cardiac_surgery_and_engineering_group .
+
+base:Cell_isolation a prov:Activity ;
+    prov:used base:Isolation_and_expansion_protocol,
+        base:Sample ;
+    prov:wasAssociatedWith base:Cardiac_surgery_and_engineering_group .
+
+base:Expanded_cell_culture a prov:Entity ;
+    prov:wasAttributedTo base:Cardiac_surgery_and_engineering_group ;
+    prov:wasGeneratedBy base:Cell_expansion .
+
+base:Growth_factors_and_other_regulatory_molecules a prov:Entity .
+
+base:Isolated_cells a prov:Entity ;
+    prov:wasAttributedTo base:Cardiac_surgery_and_engineering_group ;
+    prov:wasGeneratedBy base:Cell_isolation .
+
+<http://www.RDorg.it/Read_out/Characterization> a prov:Activity ;
+    prov:used base:Mature_tissue ;
+    prov:wasAssociatedWith base:Cardiac_surgery_and_engineering_group .
+
+base:Sample a prov:Entity ;
+    prov:wasAttributedTo base:Universitätsspital_Basel .
+
+base:Scaffold a prov:Entity ;
+    prov:wasAttributedTo base:Cardiac_surgery_and_engineering_group ;
+    prov:wasGeneratedBy base:Scaffold_preparation .
+
+base:Scaffold_preparation a prov:Activity ;
+    prov:used base:Scaffold_preparation_protocol ;
+    prov:wasAssociatedWith base:Cardiac_surgery_and_engineering_group .
+
+base:Scaffold_preparation_protocol a prov:Entity,
+        "Plan"^^xsd:string .
+
+base:Scaffold_seeding a prov:Activity ;
+    prov:used base:Expanded_cell_culture,
+        base:Scaffold ;
+    prov:wasAssociatedWith base:Cardiac_surgery_and_engineering_group .
+
+<http://www.RDorg.it/Stimulation/manipulation_protocol> a prov:Entity,
+        "Plan"^^xsd:string .
+
+base:Isolation_and_expansion_protocol a prov:Entity,
+        "Plan"^^xsd:string .
+
+base:Mature_tissue a prov:Entity ;
+    prov:wasAttributedTo base:Cardiac_surgery_and_engineering_group ;
+    prov:wasGeneratedBy base:Bioreactor_manipulation_and_tissue_culture .
+
+base:Universitätsspital_Basel a prov:Agent,
+        "Organization"^^xsd:string .
+
+base:Cardiac_surgery_and_engineering_group a prov:Agent,
+        "Organization"^^xsd:string ;
+    prov:actedOnBehalfOf base:Universitätsspital_Basel .
+

@@ -1,0 +1,179 @@
+@prefix base: <http://www.RDorg.it/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix repr: <https://w3id.org/reproduceme> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix user: <http://www.RDorg.it/people/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+base:Cultured_tissue a prov:Entity ;
+    prov:specializationOf base:Mature_tissue ;
+    prov:wasGeneratedBy base:Tissue_culture .
+
+base:Data_analysis_results a prov:Entity ;
+    prov:wasAttributedTo user:Research_group ;
+    prov:wasGeneratedBy base:Data_interpretation .
+
+base:Electrical_stimulation_protocol_V1 a prov:Entity,
+        "Plan"^^xsd:string ;
+    rdfs:label "Electrical stimulation"^^xsd:string ;
+    dcterms:MediaType "PDF"^^xsd:string ;
+    prov:atLocation "https://doi.org/10.1038/nprot.2008.183"^^xsd:string ;
+    prov:qualifiedRevision [ a prov:Revision ;
+            prov:entity base:Electrical_stimulation_protocol_V2 ] .
+
+base:Assembled_culture_chamber a prov:Entity ;
+    prov:wasGeneratedBy base:Culture_chamber_assembly .
+
+base:Biological_data a prov:Entity ;
+    prov:wasAttributedTo user:Research_group ;
+    prov:wasGeneratedBy base:Biological_studies,
+        <http://www.RDorg.it/Read_out/Characterization> .
+
+base:Cell_expansion a prov:Activity ;
+    prov:used base:Isolated_cells,
+        base:Isolation_and_expansion_protocol ;
+    prov:wasAssociatedWith user:Research_group .
+
+base:Cell_isolation a prov:Activity ;
+    prov:used base:Isolation_and_expansion_protocol,
+        base:Sample ;
+    prov:wasAssociatedWith user:Research_group .
+
+base:Culture_chamber_assembly a prov:Activity ;
+    prov:used base:Culture_chamber_ready_for_assembly,
+        base:Electrical_stimulation_protocol_V2,
+        base:Seeded_3D_scaffold_ready_for_assembly .
+
+base:Culture_chamber_ready_for_assembly a prov:Entity ;
+    prov:specializationOf base:Sterilized_culture_chamber .
+
+base:Culture_ready_construct a prov:Entity ;
+    prov:wasGeneratedBy base:Electrical_signal_check .
+
+base:Data_interpretation a prov:Activity ;
+    prov:used base:Biological_data ;
+    prov:wasAssociatedWith user:Research_group ;
+    prov:wasInformedBy base:Biological_studies .
+
+base:Electric_stimulation_signal_parameters a prov:Entity ;
+    rdfs:label "Optimal setting parameters for electrical stimulation"^^xsd:string ;
+    ncit:C112417 "Monophasic"^^xsd:string ;
+    ncit:C25677 "sct:262172008"^^xsd:string ;
+    ncit:C70813 "3 V"^^xsd:string ;
+    sio:SIO_000900 "3 Hz"^^xsd:string ;
+    sct:103335007 "2 ms"^^xsd:string ;
+    sct:704323007 "5 days"^^xsd:string ;
+    rdfs:comment "Monophasic square wave with 3Hz of frequency, 3 V of amplitude, 2ms duration, applied for 5 days"^^xsd:string ;
+    prov:specializationOf base:Electric_stimulation_signal ;
+    prov:wasGeneratedBy base:Electrical_signal_check ;
+    repr:Setting "repr:Configuration"^^xsd:string .
+
+base:Electrical_signal_application a prov:Activity ;
+    prov:used base:Assembled_culture_chamber,
+        base:Electrical_stimulation_protocol_V2,
+        base:Input_electrical_signal .
+
+base:Electrical_stimulation_and_tissue_culture a prov:Activity ;
+    dcterms:hasPart "(<ProvActivity: base:Culture_chamber_assembly>, <ProvActivity: base:Electrical_signal_application>, <ProvActivity: base:Electrical_signal_check>, <ProvActivity: base:Tissue_culture>)" ;
+    prov:used base:Electric_stimulation_signal,
+        base:Electrical_stimulation_protocol_V2,
+        base:Growth_factors_and_other_regulatory_molecules,
+        base:Seeded_scaffold,
+        base:Sterilized_culture_chamber ;
+    prov:wasAssociatedWith user:Research_group ;
+    repr:hasSetting "base:Electric_stimulation_signal_parameters"^^xsd:string .
+
+base:Electrical_stimulation_chamber_preparation a prov:Activity ;
+    prov:used base:Electrical_stimulation_protocol_V2 ;
+    prov:wasAssociatedWith user:Research_group .
+
+base:Expanded_cell_culture a prov:Entity ;
+    prov:wasAttributedTo user:Research_group ;
+    prov:wasGeneratedBy base:Cell_expansion .
+
+base:Growth_factors_and_other_regulatory_molecules a prov:Entity .
+
+base:Input_electrical_signal a prov:Entity .
+
+base:Isolated_cells a prov:Entity ;
+    prov:wasAttributedTo user:Research_group ;
+    prov:wasGeneratedBy base:Cell_isolation .
+
+base:Output_electrical_signal a prov:Entity ;
+    prov:wasGeneratedBy base:Electrical_signal_application .
+
+<http://www.RDorg.it/Read_out/Characterization> a prov:Activity ;
+    prov:used base:Electrical_stimulation_protocol_V2,
+        base:Mature_tissue ;
+    prov:wasAssociatedWith user:Research_group .
+
+base:Sample a prov:Entity ;
+    prov:wasAttributedTo user:University .
+
+base:Scaffold a prov:Entity ;
+    prov:wasAttributedTo user:Research_group ;
+    prov:wasGeneratedBy base:Scaffold_preparation .
+
+base:Scaffold_preparation a prov:Activity ;
+    prov:used base:Electrical_stimulation_protocol_V2 ;
+    prov:wasAssociatedWith user:Research_group .
+
+base:Scaffold_seeding a prov:Activity ;
+    prov:used base:Expanded_cell_culture,
+        base:Scaffold ;
+    prov:wasAssociatedWith user:Research_group .
+
+base:Seeded_3D_scaffold_ready_for_assembly a prov:Entity ;
+    prov:specializationOf base:Seeded_scaffold .
+
+base:Tissue_culture a prov:Activity ;
+    prov:used base:Culture_ready_construct,
+        base:Electric_stimulation_signal_parameters ;
+    prov:wasInformedBy base:Electrical_signal_check .
+
+base:Biological_studies a prov:Activity ;
+    prov:used base:Mature_tissue ;
+    prov:wasAssociatedWith user:Research_group .
+
+base:Electric_stimulation_signal a prov:Entity .
+
+base:Isolation_and_expansion_protocol a prov:Entity,
+        "Plan"^^xsd:string ;
+    rdfs:label "Cell preparation for culture"^^xsd:string ;
+    dcterms:MediaType "PDF"^^xsd:string ;
+    prov:atLocation "https://doi.org/10.1038/nprot.2008.40"^^xsd:string .
+
+base:Seeded_scaffold a prov:Entity ;
+    prov:wasAttributedTo user:Research_group ;
+    prov:wasGeneratedBy base:Scaffold_seeding .
+
+base:Sterilized_culture_chamber a prov:Entity ;
+    prov:wasGeneratedBy base:Electrical_stimulation_chamber_preparation .
+
+user:University a prov:Agent,
+        "Organization"^^xsd:string ;
+    foaf:name "Universitätsspital_Basel"^^xsd:string .
+
+base:Electrical_signal_check a prov:Activity ;
+    prov:used base:Output_electrical_signal .
+
+base:Mature_tissue a prov:Entity ;
+    prov:wasAttributedTo user:Research_group ;
+    prov:wasGeneratedBy base:Electrical_stimulation_and_tissue_culture .
+
+base:Electrical_stimulation_protocol_V2 a prov:Entity,
+        "Plan"^^xsd:string ;
+    rdfs:label "Electrical stimulation"^^xsd:string ;
+    dcterms:MediaType "PDF"^^xsd:string ;
+    prov:atLocation " https://doi.org/10.1002/term.377"^^xsd:string .
+
+user:Research_group a prov:Agent,
+        "Organization"^^xsd:string ;
+    prov:actedOnBehalfOf user:University ;
+    foaf:name "Cardiac_surgery_and_engineering_group"^^xsd:string .
+
