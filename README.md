@@ -1,6 +1,8 @@
 # FAIRness-and-provenance-across-biomedical-research-processes-Next-Generation-Sequencing-and-Tissue
 W3C PROV-DM has been used as a standard for building two provenance models for two distinct processes:
+
 -COVID-19 TRACKING process (Illumina WGS )
+
 -Cardiac tissue model engineering (Tissue Engineering) 
 
 The models were developed under the project "Metodi e tecnologie per la modellazione, la gestione e l’analisi di dati e immagini relativi a processi clinici e biotecnologia industriale” hosted by CRS4 and funded by Sardegna Ricerche ("https://www.sardegnaricerche.it/index.php?xsl=558&tipodoc=2&s=13&v=9&c=3168&c1=3168&id=88765&va=").
