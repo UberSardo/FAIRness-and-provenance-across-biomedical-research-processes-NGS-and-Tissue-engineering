@@ -12,7 +12,9 @@ Two more simplified models were develop for the NGS use case and another one for
 NGS process 
 The use case process is a COVID-19 tracking (WGS) performed using Illumina technologies and methods at CRS4 NGS Laboratory. 
 Please refer to this protocol 
+
 -for RNA extraction "https://www.protocols.io/view/ncov-2019-sequencing-protocol-v2-bp2l6n26rgqe/v2?version_warning=no"
+
 -for libraries "extractionhttps://support.illumina.com/content/dam/illumina-support/documents/documentation/chemistry_documentation/illumina_prep/illumina-dna-prep-reference-guide-1000000025416-10.pdf" adjusted with "https://www.medrxiv.org/content/10.1101/2021.01.22.21250285v1"
 
 Tissue Engingeering
