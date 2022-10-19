@@ -1,7 +1,7 @@
 # FAIRness-and-provenance-across-biomedical-research-processes-Next-Generation-Sequencing-and-Tissue
 W3C PROV-DM has been used as a standard for building two provenance models for two distinct processes:
 
--COVID-19 TRACKING process (Illumina WGS )
+-COVID-19 tracking process (Illumina WGS )
 
 -Cardiac tissue model engineering (Tissue Engineering) 
 
