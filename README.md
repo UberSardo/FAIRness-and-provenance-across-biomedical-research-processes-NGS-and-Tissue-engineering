@@ -10,9 +10,11 @@ The models were developed under the project "Metodi e tecnologie per la modellaz
 Every folder contain a .png flowchart that explains the process, a .ttl serialisation and a .png picture that shows the provenance model.
 
 Both an .ipynb and .py are present for every model.
-Two more simplified models were develop for the NGS use case and another one for the Tissue Engineering use case.
+Two more simplified models were developed for the NGS use case and another one for the Tissue Engineering use case.
+
 
 NGS process 
+
 The use case process is a COVID-19 tracking (WGS) performed using Illumina technologies and methods at CRS4 NGS Laboratory. 
 Please refer to this protocol 
 
@@ -20,7 +22,9 @@ Please refer to this protocol
 
 -for libraries extraction "https://support.illumina.com/content/dam/illumina-support/documents/documentation/chemistry_documentation/illumina_prep/illumina-dna-prep-reference-guide-1000000025416-10.pdf" adjusted with "https://www.medrxiv.org/content/10.1101/2021.01.22.21250285v1"
 
+
 Tissue Engingeering
+
 Cardiac tissue model engineering where a mature cardiac tissue is produced starting from cell isolation and scaffold preparation to incubation and maturation with final  assay performed at the University of Basel from the Cardiac Surgery and Tissue Engineering Group. 
 Please refer to this protocols for the whole process "https://www.nature.com/articles/nprot.2008.183 and https://pubmed.ncbi.nlm.nih.gov/21604379/".
 
