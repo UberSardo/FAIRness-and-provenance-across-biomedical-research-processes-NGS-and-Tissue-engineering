@@ -6,6 +6,7 @@ W3C PROV-DM has been used as a standard for building two provenance models for t
 The models were developed under the project "Metodi e tecnologie per la modellazione, la gestione e l’analisi di dati e immagini relativi a processi clinici e biotecnologia industriale” hosted by CRS4 and funded by Sardegna Ricerche ("https://www.sardegnaricerche.it/index.php?xsl=558&tipodoc=2&s=13&v=9&c=3168&c1=3168&id=88765&va=").
 
 Every folder contain a .png flowchart that explains the process, a .ttl serialisation and a .png picture that shows the provenance model.
+
 Both an .ipynb and .py are present for every model.
 Two more simplified models were develop for the NGS use case and another one for the Tissue Engineering use case.
 
